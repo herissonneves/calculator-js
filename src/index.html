@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SwitchCalculator - Calculator & Unit Converter</title>
+
+    <!-- CSS moved to external files -->
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+
+    <meta name="description" content="Minimalist calculator and unit converter built with HTML, CSS and JavaScript (ES5)." />
+</head>
+<body>
+    <main class="app" id="app" aria-labelledby="app-title">
+        <!-- Calculator Card -->
+        <section class="card calculator" aria-label="Calculator">
+            <div class="calc-header">
+                <div>
+                    <div class="title" id="app-title">SwitchCalculator</div>
+                    <div class="subtitle">Calculator & Unit Converter</div>
+                </div>
+                <div class="muted-xs">Keyboard: digits, + - * /, Enter, Backspace, Esc</div>
+            </div>
+
+            <div class="display" id="display" role="region" aria-live="polite" aria-label="Calculator display">
+                <div class="small" id="display-expression" aria-hidden="true">&nbsp;</div>
+                <div class="main" id="display-value" data-value="0">0</div>
+            </div>
+
+            <div class="keypad" role="application" aria-label="Calculator keypad" id="keypad">
+                <!-- Row 1 -->
+                <button class="key func" data-action="clear" aria-label="All clear (Escape)">AC</button>
+                <button class="key func" data-action="backspace" aria-label="Backspace">⌫</button>
+                <button class="key func" data-action="percent" aria-label="Percent">%</button>
+                <button class="key operator" data-action="operator" data-value="/" aria-label="Divide">÷</button>
+
+                <!-- Row 2 -->
+                <button class="key number" data-action="digit" data-value="7" aria-label="7">7</button>
+                <button class="key number" data-action="digit" data-value="8" aria-label="8">8</button>
+                <button class="key number" data-action="digit" data-value="9" aria-label="9">9</button>
+                <button class="key operator" data-action="operator" data-value="*" aria-label="Multiply">×</button>
+
+                <!-- Row 3 -->
+                <button class="key number" data-action="digit" data-value="4" aria-label="4">4</button>
+                <button class="key number" data-action="digit" data-value="5" aria-label="5">5</button>
+                <button class="key number" data-action="digit" data-value="6" aria-label="6">6</button>
+                <button class="key operator" data-action="operator" data-value="-" aria-label="Subtract">−</button>
+
+                <!-- Row 4 -->
+                <button class="key number" data-action="digit" data-value="1" aria-label="1">1</button>
+                <button class="key number" data-action="digit" data-value="2" aria-label="2">2</button>
+                <button class="key number" data-action="digit" data-value="3" aria-label="3">3</button>
+                <button class="key operator" data-action="operator" data-value="+" aria-label="Add">+</button>
+
+                <!-- Row 5 -->
+                <button class="key number wide" data-action="digit" data-value="0" aria-label="0">0</button>
+                <button class="key number" data-action="digit" data-value="." aria-label="Decimal point">.</button>
+                <button class="key eq" data-action="equals" aria-label="Equals (Enter)">=</button>
+            </div>
+        </section>
+
+        <!-- Right Panel: Converter -->
+        <aside class="side">
+            <section class="card converter" aria-label="Unit converter">
+                <div class="space-between">
+                    <div>
+                        <div class="title">Unit Converter</div>
+                        <div class="muted">Distance • Weight • Temperature</div>
+                    </div>
+                    <div class="muted-xs">Auto convert available</div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="row column-gap">
+                    <div class="flex">
+                        <label for="category" class="muted-xs">Category</label>
+                        <select id="category" class="select"></select>
+                    </div>
+
+                    <div class="row">
+                        <label for="convert-input">
+                            <input id="convert-input" class="input" type="text" inputmode="decimal" placeholder="Enter value">
+                        </label>
+                    </div>
+
+                    <div class="row">
+                        <label for="from-unit">
+                            <select id="from-unit" class="select"></select>
+                        </label>
+                        <label for="to-unit">
+                            <select id="to-unit" class="select"></select>
+                        </label>
+                        <button id="convert-btn" class="btn">Convert</button>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="muted">Result</div>
+                    <div class="result-value" id="convert-result">—</div>
+                    <div class="muted-xs" id="convert-note">&nbsp;</div>
+                </div>
+
+                <div class="flex">
+                    <button id="auto-toggle" class="btn-outline">Auto</button>
+                    <button id="copy-result" class="btn-outline">Copy</button>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="title">About</div>
+                <div class="muted">Minimal calculator + converter for portfolio.</div>
+            </section>
+        </aside>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
