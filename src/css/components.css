@@ -1,8 +1,22 @@
 /* Typography */
-.title { font-size: 1.1rem; font-weight: 600; }
-.sub { color: var(--muted); font-size: .9rem; }
-.muted { color: var(--muted); }
-.muted-xs { color: var(--muted); font-size: .8rem; }
+.title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.sub {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.muted-xs {
+    color: var(--muted);
+    font-size: .8rem;
+}
 
 /* Display */
 .display {
@@ -38,11 +52,28 @@ button.key {
     transition: var(--transition);
 }
 
-.key.number { background: #fff; }
-.key.operator { background: #eef2ff; color: var(--accent-600); }
-.key.func { background: #fafafa; }
-.key.eq { background: var(--accent); color: #fff; font-weight: 700; }
-.key.wide { grid-column: span 2; }
+.key.number {
+    background: #fff;
+}
+
+.key.operator {
+    background: #eef2ff;
+    color: var(--accent-600);
+}
+
+.key.func {
+    background: #fafafa;
+}
+
+.key.eq {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+}
+
+.key.wide {
+    grid-column: span 2;
+}
 
 button:active {
     transform: translateY(1px);

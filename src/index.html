@@ -1,122 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SwitchCalculator - Calculator & Unit Converter</title>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>SwitchCalculator - Calculator & Unit Converter</title>
 
-    <!-- CSS moved to external files -->
-    <link rel="stylesheet" href="./css/base.css" />
-    <link rel="stylesheet" href="./css/layout.css" />
-    <link rel="stylesheet" href="./css/components.css" />
+  <!-- CSS moved to external files -->
+  <link href="./css/base.css" rel="stylesheet" />
+  <link href="./css/layout.css" rel="stylesheet" />
+  <link href="./css/components.css" rel="stylesheet" />
 
-    <meta name="description" content="Minimalist calculator and unit converter built with HTML, CSS and JavaScript (ES5)." />
+  <meta content="Minimalist calculator and unit converter built with HTML, CSS and JavaScript (ES5)."
+        name="description" />
 </head>
 <body>
-    <main class="app" id="app" aria-labelledby="app-title">
-        <!-- Calculator Card -->
-        <section class="card calculator" aria-label="Calculator">
-            <div class="calc-header">
-                <div>
-                    <div class="title" id="app-title">SwitchCalculator</div>
-                    <div class="subtitle">Calculator & Unit Converter</div>
-                </div>
-                <div class="muted-xs">Keyboard: digits, + - * /, Enter, Backspace, Esc</div>
-            </div>
+<main aria-labelledby="app-title" class="app" id="app">
+  <!-- Calculator Card -->
+  <section aria-label="Calculator" class="card calculator">
+    <div class="calc-header">
+      <div>
+        <div class="title" id="app-title">SwitchCalculator</div>
+        <div class="subtitle">Calculator & Unit Converter</div>
+      </div>
+      <div class="muted-xs">Keyboard: digits, + - * /, Enter, Backspace, Esc</div>
+    </div>
 
-            <div class="display" id="display" role="region" aria-live="polite" aria-label="Calculator display">
-                <div class="small" id="display-expression" aria-hidden="true">&nbsp;</div>
-                <div class="main" id="display-value" data-value="0">0</div>
-            </div>
+    <div aria-label="Calculator display" aria-live="polite" class="display" id="display" role="region">
+      <div aria-hidden="true" class="small" id="display-expression">&nbsp;</div>
+      <div class="main" data-value="0" id="display-value">0</div>
+    </div>
 
-            <div class="keypad" role="application" aria-label="Calculator keypad" id="keypad">
-                <!-- Row 1 -->
-                <button class="key func" data-action="clear" aria-label="All clear (Escape)">AC</button>
-                <button class="key func" data-action="backspace" aria-label="Backspace">⌫</button>
-                <button class="key func" data-action="percent" aria-label="Percent">%</button>
-                <button class="key operator" data-action="operator" data-value="/" aria-label="Divide">÷</button>
+    <div aria-label="Calculator keypad" class="keypad" id="keypad" role="application">
+      <!-- Row 1 -->
+      <button aria-label="All clear (Escape)" class="key func" data-action="clear">AC</button>
+      <button aria-label="Backspace" class="key func" data-action="backspace">⌫</button>
+      <button aria-label="Percent" class="key func" data-action="percent">%</button>
+      <button aria-label="Divide" class="key operator" data-action="operator" data-value="/">÷</button>
 
-                <!-- Row 2 -->
-                <button class="key number" data-action="digit" data-value="7" aria-label="7">7</button>
-                <button class="key number" data-action="digit" data-value="8" aria-label="8">8</button>
-                <button class="key number" data-action="digit" data-value="9" aria-label="9">9</button>
-                <button class="key operator" data-action="operator" data-value="*" aria-label="Multiply">×</button>
+      <!-- Row 2 -->
+      <button aria-label="7" class="key number" data-action="digit" data-value="7">7</button>
+      <button aria-label="8" class="key number" data-action="digit" data-value="8">8</button>
+      <button aria-label="9" class="key number" data-action="digit" data-value="9">9</button>
+      <button aria-label="Multiply" class="key operator" data-action="operator" data-value="*">×</button>
 
-                <!-- Row 3 -->
-                <button class="key number" data-action="digit" data-value="4" aria-label="4">4</button>
-                <button class="key number" data-action="digit" data-value="5" aria-label="5">5</button>
-                <button class="key number" data-action="digit" data-value="6" aria-label="6">6</button>
-                <button class="key operator" data-action="operator" data-value="-" aria-label="Subtract">−</button>
+      <!-- Row 3 -->
+      <button aria-label="4" class="key number" data-action="digit" data-value="4">4</button>
+      <button aria-label="5" class="key number" data-action="digit" data-value="5">5</button>
+      <button aria-label="6" class="key number" data-action="digit" data-value="6">6</button>
+      <button aria-label="Subtract" class="key operator" data-action="operator" data-value="-">−</button>
 
-                <!-- Row 4 -->
-                <button class="key number" data-action="digit" data-value="1" aria-label="1">1</button>
-                <button class="key number" data-action="digit" data-value="2" aria-label="2">2</button>
-                <button class="key number" data-action="digit" data-value="3" aria-label="3">3</button>
-                <button class="key operator" data-action="operator" data-value="+" aria-label="Add">+</button>
+      <!-- Row 4 -->
+      <button aria-label="1" class="key number" data-action="digit" data-value="1">1</button>
+      <button aria-label="2" class="key number" data-action="digit" data-value="2">2</button>
+      <button aria-label="3" class="key number" data-action="digit" data-value="3">3</button>
+      <button aria-label="Add" class="key operator" data-action="operator" data-value="+">+</button>
 
-                <!-- Row 5 -->
-                <button class="key number wide" data-action="digit" data-value="0" aria-label="0">0</button>
-                <button class="key number" data-action="digit" data-value="." aria-label="Decimal point">.</button>
-                <button class="key eq" data-action="equals" aria-label="Equals (Enter)">=</button>
-            </div>
-        </section>
+      <!-- Row 5 -->
+      <button aria-label="0" class="key number wide" data-action="digit" data-value="0">0</button>
+      <button aria-label="Decimal point" class="key number" data-action="digit" data-value=".">.</button>
+      <button aria-label="Equals (Enter)" class="key eq" data-action="equals">=</button>
+    </div>
+  </section>
 
-        <!-- Right Panel: Converter -->
-        <aside class="side">
-            <section class="card converter" aria-label="Unit converter">
-                <div class="space-between">
-                    <div>
-                        <div class="title">Unit Converter</div>
-                        <div class="muted">Distance • Weight • Temperature</div>
-                    </div>
-                    <div class="muted-xs">Auto convert available</div>
-                </div>
+  <!-- Right Panel: Converter -->
+  <aside class="side">
+    <section aria-label="Unit converter" class="card converter">
+      <div class="space-between">
+        <div>
+          <div class="title">Unit Converter</div>
+          <div class="muted">Distance • Weight • Temperature</div>
+        </div>
+        <div class="muted-xs">Auto convert available</div>
+      </div>
 
-                <div class="divider"></div>
+      <div class="divider"></div>
 
-                <div class="row column-gap">
-                    <div class="flex">
-                        <label for="category" class="muted-xs">Category</label>
-                        <select id="category" class="select"></select>
-                    </div>
+      <div class="row column-gap">
+        <div class="flex">
+          <label class="muted-xs" for="category">Category</label>
+          <select class="select" id="category"></select>
+        </div>
 
-                    <div class="row">
-                        <label for="convert-input">
-                            <input id="convert-input" class="input" type="text" inputmode="decimal" placeholder="Enter value">
-                        </label>
-                    </div>
+        <div class="row">
+          <label for="convert-input">
+            <input class="input" id="convert-input" inputmode="decimal" placeholder="Enter value"
+                   type="text">
+          </label>
+        </div>
 
-                    <div class="row">
-                        <label for="from-unit">
-                            <select id="from-unit" class="select"></select>
-                        </label>
-                        <label for="to-unit">
-                            <select id="to-unit" class="select"></select>
-                        </label>
-                        <button id="convert-btn" class="btn">Convert</button>
-                    </div>
-                </div>
+        <div class="row">
+          <label for="from-unit">
+            <select class="select" id="from-unit"></select>
+          </label>
+          <label for="to-unit">
+            <select class="select" id="to-unit"></select>
+          </label>
+          <button class="btn" id="convert-btn">Convert</button>
+        </div>
+      </div>
 
-                <div class="result-card">
-                    <div class="muted">Result</div>
-                    <div class="result-value" id="convert-result">—</div>
-                    <div class="muted-xs" id="convert-note">&nbsp;</div>
-                </div>
+      <div class="result-card">
+        <div class="muted">Result</div>
+        <div class="result-value" id="convert-result">—</div>
+        <div class="muted-xs" id="convert-note">&nbsp;</div>
+      </div>
 
-                <div class="flex">
-                    <button id="auto-toggle" class="btn-outline">Auto</button>
-                    <button id="copy-result" class="btn-outline">Copy</button>
-                </div>
-            </section>
+      <div class="flex">
+        <button class="btn-outline" id="auto-toggle">Auto</button>
+        <button class="btn-outline" id="copy-result">Copy</button>
+      </div>
+    </section>
 
-            <section class="card">
-                <div class="title">About</div>
-                <div class="muted">Minimal calculator + converter for portfolio.</div>
-            </section>
-        </aside>
-    </main>
+    <section class="card">
+      <div class="title">About</div>
+      <div class="muted">Minimal calculator + converter for portfolio.</div>
+    </section>
+  </aside>
+</main>
 
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <script type="module" src="./js/main.js"></script>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+<script src="./js/main.js" type="module"></script>
 </body>
 </html>
